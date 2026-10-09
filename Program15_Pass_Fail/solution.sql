@@ -1,17 +1,18 @@
 USE CollegeDB;
 
-DROP PROCEDURE IF EXISTS CheckResult;
+--check Greater than 40.
 
-DELIMITER $$
+DELIMITER //
 
-CREATE PROCEDURE CheckResult(IN p_marks INT)
+CREATE PROCEDURE CheckResult(IN marks INT)
 BEGIN
-
-    -- Use IF-ELSE to check pass/fail
-
-END $$
+    IF marks >= 40 THEN
+        SELECT 'Pass' AS Result;
+    ELSE
+        SELECT 'Fail' AS Result;
+    END IF;
+END //
 
 DELIMITER ;
 
--- Test the procedure
-CALL CheckResult(75);
+CALL CheckResult(65);
